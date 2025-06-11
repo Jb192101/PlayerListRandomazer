@@ -1,10 +1,13 @@
 package org.jedi_bachelor.utils;
 
+import lombok.Getter;
+
 import java.io.*;
 
 import java.util.List;
 import java.util.Scanner;
 
+@Getter
 public class FilesReader {
     private List<String> names1;
     private List<String> names2;
@@ -13,13 +16,13 @@ public class FilesReader {
         try {
             readFromFile();
         } catch(FileNotFoundException e) {
-            System.out.println("Ошибка : Не найден файл!");
+            System.out.println("FilesReader : Не найден файл!");
         }
     }
 
     private void readFromFile() throws FileNotFoundException {
-        File file1 = new File("names_of_teams_1.txt");
-        File file2 = new File("names_of_teams_2.txt");
+        File file1 = new File("txt/names_of_teams_1.txt");
+        File file2 = new File("txt/names_of_teams_2.txt");
 
         Scanner scan1 = new Scanner(file1);
         Scanner scan2 = new Scanner(file2);
@@ -33,11 +36,4 @@ public class FilesReader {
         }
     }
 
-    public List<String> getNames1() {
-        return names1;
-    }
-
-    public List<String> getNames2() {
-        return names2;
-    }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class JSONWriter {
     private Gson gson;
-    private final String PATH_TO_JSON = "players.json";
+    private final String PATH_TO_JSON = "json/players.json";
 
     public JSONWriter() {
         this.gson = new GsonBuilder()
@@ -26,7 +26,7 @@ public class JSONWriter {
     public void toJson(List<Team> _teams) {
         try {
             String json = gson.toJson(_teams);
-            try (FileWriter writer = new FileWriter("players.json")) {
+            try (FileWriter writer = new FileWriter(PATH_TO_JSON)) {
                 writer.write(json);
             }
         } catch (Exception e) {
