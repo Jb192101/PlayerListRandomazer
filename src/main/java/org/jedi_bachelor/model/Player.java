@@ -1,6 +1,6 @@
 package org.jedi_bachelor.model;
 
-public class Player {
+public class Player implements Comparable<Player> {
     private String nickname;
 
     private int countOfBrokingBeds = 0;
@@ -36,5 +36,10 @@ public class Player {
 
     public float getPlayerRating() {
         return 0.5f*countOfBrokingBeds + 0.25f*countOfKillings - 0.15f*countOfDyings;
+    }
+
+    @Override
+    public int compareTo(Player o) {
+        return 0;
     }
 }
