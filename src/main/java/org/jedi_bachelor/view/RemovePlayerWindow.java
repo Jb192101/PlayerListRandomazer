@@ -8,11 +8,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.jedi_bachelor.viewmodel.RemoveViewModel;
 
 public class RemovePlayerWindow extends Stage {
     private Label errorLabel;
 
-    public RemovePlayerWindow() {
+    private RemoveViewModel rvm;
+
+    public RemovePlayerWindow(RemoveViewModel _rvm) {
+        this.rvm = _rvm;
+
         setupUI();
     }
 
@@ -26,9 +31,10 @@ public class RemovePlayerWindow extends Stage {
 
         Button removeButton = new Button("Удалить");
         removeButton.setOnAction(e -> {
-            // Здесь будет логика удаления игрока
-            // Если игрок не найден:
-            errorLabel.setText("Игрок с таким ником не найден!");
+            errorLabel.setText("");
+            boolean isFinding = rvm.removePlayer(nicknameField.getText());
+            if(!isFinding)
+                errorLabel.setText("Игрок с таким ником не найден!");
         });
 
         errorLabel = new Label();

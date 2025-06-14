@@ -18,5 +18,4 @@ public class GeneratorRandomTeamName {
 
         return list1.get(randomIndex1) + " " + list2.get(randomIndex2);
     }
-
 }

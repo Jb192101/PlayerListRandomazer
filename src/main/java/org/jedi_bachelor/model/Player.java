@@ -40,6 +40,22 @@ public class Player implements Comparable<Player> {
 
     @Override
     public int compareTo(Player o) {
-        return 0;
+        return Float.compare(this.getPlayerRating(), o.getPlayerRating());
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public int getCountOfBrokingBeds() {
+        return countOfBrokingBeds;
+    }
+
+    public int getCountOfKillings() {
+        return countOfKillings;
+    }
+
+    public int getCountOfDyings() {
+        return countOfDyings;
     }
 }

@@ -5,13 +5,19 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.jedi_bachelor.viewmodel.AddViewModel;
 
 public class AddPlayerWindow extends Stage {
-    public AddPlayerWindow() {
+    AddViewModel avm;
+
+    public AddPlayerWindow(AddViewModel _avm) {
+        this.avm = _avm;
+
         setupUI();
     }
 
@@ -26,9 +32,9 @@ public class AddPlayerWindow extends Stage {
         form.setAlignment(Pos.CENTER);
 
         TextField nicknameField = new TextField();
-        TextField killsField = new TextField();
-        TextField deathsField = new TextField();
-        TextField bedsBrokenField = new TextField();
+        Spinner<Integer> killsField = new Spinner<>();
+        Spinner<Integer> deathsField = new Spinner<>();
+        Spinner<Integer> bedsBrokenField = new Spinner<>();
 
         form.add(new Label("Никнейм:"), 0, 0);
         form.add(nicknameField, 1, 0);
@@ -42,6 +48,12 @@ public class AddPlayerWindow extends Stage {
         Button addButton = new Button("Добавить");
         addButton.setOnAction(e -> {
             // Здесь будет логика добавления игрока
+            avm.addPlayer(
+                    nicknameField.getText(),
+                    killsField.getValue(),
+                    deathsField.getValue(),
+                    bedsBrokenField.getValue()
+            );
             this.close();
         });
 

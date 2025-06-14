@@ -1,6 +1,7 @@
 package org.jedi_bachelor.viewmodel;
 
 import org.jedi_bachelor.model.Model;
+import org.jedi_bachelor.model.Player;
 import org.jedi_bachelor.view.MainWindow;
 
 public class MainViewModel extends AbstractViewModel {
@@ -12,8 +13,8 @@ public class MainViewModel extends AbstractViewModel {
     public MainViewModel() {
         model = new Model();
 
-        avm = new AddViewModel();
-        rvm = new RemoveViewModel();
+        avm = new AddViewModel(this);
+        rvm = new RemoveViewModel(this);
 
         this.window = new MainWindow(this);
     }
@@ -39,5 +40,13 @@ public class MainViewModel extends AbstractViewModel {
         model.randomaze();
 
         return true;
+    }
+
+    public void addPlayer(Player _p) {
+        model.addPlayer(_p);
+    }
+
+    public boolean removePlayer(String _nick) {
+        return model.removePlayer(_nick);
     }
 }
