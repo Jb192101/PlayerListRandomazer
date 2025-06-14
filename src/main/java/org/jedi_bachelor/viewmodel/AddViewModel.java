@@ -1,4 +1,9 @@
 package org.jedi_bachelor.viewmodel;
 
-public class AddViewModel {
+import org.jedi_bachelor.view.AddPlayerWindow;
+
+public class AddViewModel extends AbstractViewModel {
+    public AddViewModel() {
+        this.window = new AddPlayerWindow();
+    }
 }

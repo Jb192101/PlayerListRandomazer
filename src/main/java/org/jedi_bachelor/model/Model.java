@@ -14,5 +14,11 @@ public class Model {
         grtn = new GeneratorRandomTeamName();
     }
 
+    public List<Player> getPlayerList() {
+        return this.listOfPlayers;
+    }
 
+    public void randomaze() {
+
+    }
 }

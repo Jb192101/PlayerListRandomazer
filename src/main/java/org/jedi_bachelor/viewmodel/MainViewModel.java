@@ -3,32 +3,41 @@ package org.jedi_bachelor.viewmodel;
 import org.jedi_bachelor.model.Model;
 import org.jedi_bachelor.view.MainWindow;
 
-public class MainViewModel implements ViewModelInterface {
-    private MainWindow mw;
-
+public class MainViewModel extends AbstractViewModel {
     private AddViewModel avm;
     private RemoveViewModel rvm;
 
     private Model model;
 
     public MainViewModel() {
-        mw = new MainWindow();
         model = new Model();
 
         avm = new AddViewModel();
         rvm = new RemoveViewModel();
-    }
 
-    // Методы работы с окном
-    @Override
-    public void showWindow() {
-        mw.show();
-    }
-
-    @Override
-    public void closeWindow() {
-        mw.close();
+        this.window = new MainWindow(this);
     }
 
     // Методы работы с моделью
+
+    // Открытие других окон
+    public void openAddWindow() {
+        avm.showWindow();
+    }
+
+    public void openRemoveWindow() {
+        rvm.showWindow();
+    }
+
+    // Рандомайзинг
+    public boolean randomaze() {
+        if(model.getPlayerList().size() < 4 || model.getPlayerList().size() > 8) {
+            return false;
+        }
+
+        // Процесс рандома
+        model.randomaze();
+
+        return true;
+    }
 }

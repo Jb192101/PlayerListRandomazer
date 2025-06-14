@@ -11,9 +11,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.jedi_bachelor.viewmodel.MainViewModel;
 
 public class MainWindow extends Stage {
-    public MainWindow() {
+    MainViewModel mvm;
+
+    public MainWindow(MainViewModel _mvm) {
+        this.mvm = _mvm;
+
         setupUI();
     }
 
@@ -44,6 +49,10 @@ public class MainWindow extends Stage {
         Button addPlayerBtn = new Button("Добавить игрока");
         Button removePlayerBtn = new Button("Удалить игрока");
         Button randomBtn = new Button("Рандом");
+
+        addPlayerBtn.setOnAction(e -> mvm.openAddWindow());
+        removePlayerBtn.setOnAction(e -> mvm.openRemoveWindow());
+        randomBtn.setOnAction(e -> mvm.randomaze());
 
         buttonPanel.getChildren().addAll(addPlayerBtn, removePlayerBtn, randomBtn);
 
