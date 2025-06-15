@@ -3,7 +3,6 @@ package org.jedi_bachelor.utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.jedi_bachelor.model.Player;
-import org.jedi_bachelor.model.Team;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,7 +14,7 @@ import java.util.List;
 
 public class JSONWriter {
     private Gson gson;
-    private final String PATH_TO_JSON = "json/players.json";
+    private final String PATH_TO_JSON = "/user_data/players.json";
 
     public JSONWriter() {
         this.gson = new GsonBuilder()

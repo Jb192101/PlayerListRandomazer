@@ -1,6 +1,5 @@
 package org.jedi_bachelor.viewmodel;
 
-import org.jedi_bachelor.model.Model;
 import org.jedi_bachelor.model.Player;
 import org.jedi_bachelor.view.AddPlayerWindow;
 

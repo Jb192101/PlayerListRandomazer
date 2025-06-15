@@ -2,6 +2,7 @@ package org.jedi_bachelor.model;
 
 import org.jedi_bachelor.utils.JSONWriter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,6 +18,9 @@ public class Model {
         jsw = new JSONWriter();
         r = new Randomazer();
         grtn = new GeneratorRandomTeamName();
+
+        listOfPlayers = new ArrayList<>();
+        teams = new ArrayList<>();
     }
 
     public List<Player> getPlayerList() {
@@ -25,6 +29,7 @@ public class Model {
 
     public void addPlayer(Player _p) {
         listOfPlayers.add(_p);
+        System.out.println("Список игроков: " + listOfPlayers);
         jsw.toJson(listOfPlayers);
     }
 

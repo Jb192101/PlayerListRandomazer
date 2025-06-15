@@ -32,9 +32,9 @@ public class AddPlayerWindow extends Stage {
         form.setAlignment(Pos.CENTER);
 
         TextField nicknameField = new TextField();
-        Spinner<Integer> killsField = new Spinner<>();
-        Spinner<Integer> deathsField = new Spinner<>();
-        Spinner<Integer> bedsBrokenField = new Spinner<>();
+        Spinner<Integer> killsField = new Spinner<>(0, Integer.MAX_VALUE, 1);
+        Spinner<Integer> deathsField = new Spinner<>(0, Integer.MAX_VALUE, 1);
+        Spinner<Integer> bedsBrokenField = new Spinner<>(0, Integer.MAX_VALUE, 1);
 
         form.add(new Label("Никнейм:"), 0, 0);
         form.add(nicknameField, 1, 0);
